@@ -1,3 +1,4 @@
+[![Build Status](https://barradas.visualstudio.com/Contributions/_apis/build/status/NugetPackage/Periodic%20Batching?branchName=develop)](https://barradas.visualstudio.com/Contributions/_build/latest?definitionId=26&branchName=develop)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ThiagoBarradas_periodic-batching&metric=alert_status)](https://sonarcloud.io/dashboard?id=ThiagoBarradas_periodic-batching)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=ThiagoBarradas_periodic-batching&metric=coverage)](https://sonarcloud.io/dashboard?id=ThiagoBarradas_periodic-batching)
 [![NuGet Downloads](https://img.shields.io/nuget/dt/PeriodicBatching.svg)](https://www.nuget.org/packages/PeriodicBatching/)
@@ -14,13 +15,13 @@ Execute a batching function with a controlled size every some specified time int
 // some class 
 public class MyEvent
 {
-	public string SomeProperty { get; set; }
+    public string SomeProperty { get; set; }
 }
 
 // method that will be called every X seconds/minutes/etc
 public static async Task ExecuteMethod(List<MyEvent> events)
 {
-	// do something
+    // do something
 }
 
 // configuring periodic batching
@@ -49,17 +50,17 @@ periodicBatchingOtherWay.Setup(config);
 
 public static async Task SingleFailure(Exception e, int failures)
 {
-	// do something
+    // do something
 }
 
 public static async Task DropBatch(List<SomeEvent> events)
 {
-	// do something
+    // do something
 }
 
 public static async Task DropQueue(List<SomeEvent> events)
-        {
-	// do something
+{
+    // do something
 }
 
 ```
