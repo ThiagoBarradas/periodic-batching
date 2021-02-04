@@ -94,7 +94,9 @@ namespace PeriodicBatching
             {
                 this.Status.MarkFailure();
                 
-                await this.PeriodicBatchingConfiguration.SingleFailureCallback?.Invoke(e, this.Status.CurrentFailuresSinceSuccessfulBatch);   
+                await this.PeriodicBatchingConfiguration.SingleFailureCallback?.Invoke(e, 
+                    this.Status.CurrentFailuresSinceSuccessfulBatch,
+                    this.Queue.Count);   
             }
             finally
             {

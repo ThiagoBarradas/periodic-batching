@@ -31,7 +31,7 @@ var config = new PeriodicBatchingConfiguration<MyEvent>
     FailuresBeforeDroppingBatch = 3,                  // after X consecutive failures, current batch will be dropped. Use -1 to cancel this behavior. default 5.
     FailuresBeforeDroppingQueue = 10,                 // after X consecutive failures, all queue items will be dropped. Use -1 to cancel this behavior. deafult 10.
     BatchingFunc = ExecuteMethod,                     // (required) delegate called to process batch
-    SingleFailureCallback = SingleFailure,            // (optional) delegate called when a single failure happens - exception and failure count are passed as parameter.
+    SingleFailureCallback = SingleFailure,            // (optional) delegate called when a single failure happens - exception, failures count and queue count are passed as parameter.
     DropBatchCallback = DropBatch,                    // (optional) delegate called when a batch is dropped - current batch items are passed as parameter.
     DropQueueCallback = DropQueue,                    // (optional) delegate called when a queue is dropped - all queue items are passed as parameter.
     Period = TimeSpan.FromSeconds(5),                 // interval to execute main method - BatchingFunc. default 10s.
@@ -48,7 +48,7 @@ periodicBatchingOtherWay.Setup(config);
 
 // sample of other delegates
 
-public static async Task SingleFailure(Exception e, int failures)
+public static async Task SingleFailure(Exception e, int failures, int queueCount))
 {
     // do something
 }

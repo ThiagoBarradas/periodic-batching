@@ -16,7 +16,7 @@ namespace PeriodicBatching.Models
 
         public int FailuresBeforeDroppingQueue { get; set; } = 10;
 
-        public Func<Exception, int, Task> SingleFailureCallback { get; set; }
+        public Func<Exception, int, int, Task> SingleFailureCallback { get; set; }
 
         public Func<List<TEvent>, Task> DropBatchCallback { get; set; }
 

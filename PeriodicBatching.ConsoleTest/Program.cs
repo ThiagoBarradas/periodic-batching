@@ -30,7 +30,7 @@ namespace PeriodicBatching.ConsoleTest
             Console.WriteLine("#################### PROCESSING FINISH");
         }
 
-        public static async Task SingleFailure(Exception e, int failures)
+        public static async Task SingleFailure(Exception e, int failures, int queueTotal)
         {
             await Task.Delay(50);
 
