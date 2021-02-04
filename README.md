@@ -1,12 +1,12 @@
 [![Build Status](https://barradas.visualstudio.com/Contributions/_apis/build/status/NugetPackage/Periodic%20Batching?branchName=develop)](https://barradas.visualstudio.com/Contributions/_build/latest?definitionId=26&branchName=develop)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ThiagoBarradas_periodic-batching&metric=alert_status)](https://sonarcloud.io/dashboard?id=ThiagoBarradas_periodic-batching)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=ThiagoBarradas_periodic-batching&metric=coverage)](https://sonarcloud.io/dashboard?id=ThiagoBarradas_periodic-batching)
+<!-- [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=ThiagoBarradas_periodic-batching&metric=coverage)](https://sonarcloud.io/dashboard?id=ThiagoBarradas_periodic-batching) -->
 [![NuGet Downloads](https://img.shields.io/nuget/dt/PeriodicBatching.svg)](https://www.nuget.org/packages/PeriodicBatching/)
 [![NuGet Version](https://img.shields.io/nuget/v/PeriodicBatching.svg)](https://www.nuget.org/packages/PeriodicBatching/)
 
 # Periodic Batching
 
-Execute a batching function with a controlled size every some specified time interval. Very useful for background processes to send events to some broker or something like it. Based on serilog algorithm, refactored with a little customization.
+Execute a batching function with a controlled size every some specified time interval. Very useful for background processes to send events to some broker or something like it.
 
 # Sample
 
