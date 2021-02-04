@@ -71,13 +71,12 @@ PM> Install-Package PeriodicBatching
 ```
 
 ## How can I contribute?
+
 Please, refer to [CONTRIBUTING](.github/CONTRIBUTING.md)
 
 ## Found something strange or need a new feature?
-Open a new Issue following our issue template [ISSUE_TEMPLATE](.github/ISSUE_TEMPLATE.md)
 
-## Changelog
-See in [nuget version history](https://www.nuget.org/packages/JsonFieldSelector)
+Open a new Issue following our issue template [ISSUE_TEMPLATE](.github/ISSUE_TEMPLATE.md)
 
 ## Did you like it? Please, make a donate :)
 
