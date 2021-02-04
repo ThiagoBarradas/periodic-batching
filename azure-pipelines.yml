@@ -12,7 +12,7 @@ variables:
   sdk_project_name: 'PeriodicBatching'
   sdk_project_path: 'PeriodicBatching/PeriodicBatching.csproj'
   net_version: 'netstandard2.0'
-  execute_test: 'true'
+  execute_test: 'false'
   test_project_base_folder: 'PeriodicBatching.Tests'
   test_project_path: 'PeriodicBatching.Tests/PeriodicBatching.Tests.csproj'
   execute_sonarcloud: 'true'
