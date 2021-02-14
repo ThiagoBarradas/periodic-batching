@@ -2,6 +2,7 @@
 using PeriodicBatching.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -100,13 +101,13 @@ namespace PeriodicBatching
             }
             finally
             {
-                if (this.Status.ShouldDropBatch)
+                if (this.Status.ShouldDropBatch && this.WaitingBatch.Any())
                 {
                     await this.PeriodicBatchingConfiguration?.DropBatchCallback(this.WaitingBatch);
                     this.WaitingBatch.Clear();
                 }
 
-                if (this.Status.ShouldDropQueue)
+                if (this.Status.ShouldDropQueue && this.Queue.Count > 0)
                 {
                     var currentEvents = new List<TEvent>();
                     while (this.Queue.TryDequeue(out TEvent _event)) 
