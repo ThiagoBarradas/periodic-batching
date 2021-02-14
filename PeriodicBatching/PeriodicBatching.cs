@@ -101,24 +101,7 @@ namespace PeriodicBatching
             }
             finally
             {
-                if (this.Status.ShouldDropBatch && this.WaitingBatch.Any())
-                {
-                    await this.PeriodicBatchingConfiguration?.DropBatchCallback(this.WaitingBatch);
-                    this.WaitingBatch.Clear();
-                }
-
-                if (this.Status.ShouldDropQueue && this.Queue.Count > 0)
-                {
-                    var currentEvents = new List<TEvent>();
-                    while (this.Queue.TryDequeue(out TEvent _event)) 
-                    {
-                        if (this.PeriodicBatchingConfiguration.DropQueueCallback != null)
-                        {
-                            currentEvents.Add(_event);
-                        }
-                    }
-                    await this.PeriodicBatchingConfiguration?.DropQueueCallback(currentEvents);
-                }
+                await this.TryDrop();
 
                 lock (this.StateLock)
                 {
@@ -127,6 +110,28 @@ namespace PeriodicBatching
                         this.Timer.Start(this.Status.NextInterval);
                     }
                 }
+            }
+        }
+
+        private async Task TryDrop()
+        {
+            if (this.Status.ShouldDropBatch && this.WaitingBatch.Any())
+            {
+                await this.PeriodicBatchingConfiguration?.DropBatchCallback(this.WaitingBatch);
+                this.WaitingBatch.Clear();
+            }
+
+            if (this.Status.ShouldDropQueue && this.Queue.Count > 0)
+            {
+                var currentEvents = new List<TEvent>();
+                while (this.Queue.TryDequeue(out TEvent _event))
+                {
+                    if (this.PeriodicBatchingConfiguration.DropQueueCallback != null)
+                    {
+                        currentEvents.Add(_event);
+                    }
+                }
+                await this.PeriodicBatchingConfiguration?.DropQueueCallback(currentEvents);
             }
         }
 
